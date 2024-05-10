@@ -1,0 +1,71 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Chinh sua thong tin co so sx cay giong  | Ten cs : {{ co_so_sx_cay_giong.ten_co_so }} |  #ID : {{ co_so_sx_cay_giong.id }}
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Chinh sua</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/edit_co_so_san_xuat_cay_gong_save" method="post">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Ten co so</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="ten_co_so"
+                      placeholder="Nhap ten don vi"
+                      id="loai_cay_giong"
+                      autocomplete="off"
+                      value="{{co_so_sx_cay_giong.ten_co_so}}"
+                    />
+                    <input type="hidden"  name="co_so_id"  value="{{ co_so_sx_cay_giong.id }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Dia chi</label>
+                    <input type="text" class="form-control" name="dia_chi" placeholder="Nhap dia chi co so" value="{{ co_so_sx_cay_giong.dia_diem }}">
+                  </div>
+                    <div class="form-group">
+                      <label>Ngay cap phep</label>
+                      <input type="date" class="form-control" name="ngay_cap_phep" placeholder="Nhap ngay cap phep" value="{{ co_so_sx_cay_giong.ngay_cap_phep|date:'Y-m-d' }}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.tags == 'error' %}
+                      <div class="alert alert-danger" style="margin-top: 10px">
+                        {{ message }}
+                      </div>
+                    {% endif %} 
+                    {% if message.tags == 'success' %}
+                    <div class="alert alert-success" style="margin-top: 10px">
+                      {{ message }}
+                    </div>
+                    {% endif %} {% endfor %} {% endif %}
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Cap nhat co so san xuat cay giong</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

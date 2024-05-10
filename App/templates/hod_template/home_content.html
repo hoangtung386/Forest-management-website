@@ -1,0 +1,86 @@
+{% extends 'hod_template/base_template.html' %} 
+{% block page_title %}
+ Bang tong hop 
+{%endblock page_title %}
+{% block main_content %}
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>{{ CanBoNghiepVu_count }}</h3>
+
+            <p>So luong can bo nghiep vu</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+          <a class="small-box-footer" href="/manage_staff"
+            >More info <i class="fas fa-arrow-circle-right"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3>{{ LoaiCayGiong_count }}</h3>
+
+            <p>So luong loai cay giong</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+          <a class="small-box-footer" href="/manage_loai_cay_giong"
+            >More info <i class="fas fa-arrow-circle-right"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+          <div class="inner">
+            <h3>{{ LoaiDongVatQuyHiem_count }}</h3>
+
+            <p>So luong loai dong vat quy</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+          <a class="small-box-footer" href="/manage_loai_dong_vat_quy"
+            >More info <i class="fas fa-arrow-circle-right"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3>{{ CoSoSanXuatCayGiong_count }}</h3>
+
+            <p>So luong co so san xuat cay giong</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+          <a class="small-box-footer" href="/manage_co_so_san_xuat_cay_giong"
+            >More info <i class="fas fa-arrow-circle-right"></i
+          ></a>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card card-danger">
+        
+          <!-- /.card-body -->
+        </div>
+      </div>
+{% endblock main_content %}

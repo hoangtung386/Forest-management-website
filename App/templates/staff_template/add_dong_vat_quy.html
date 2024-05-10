@@ -1,0 +1,88 @@
+{% extends 'staff_template/base_template.html' %}
+{% block page_title %}
+Them thong tin dong vat quy
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin dong vat</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/add_dong_vat_quy_save" method="post">
+                {% csrf_token %}
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Loai dong vat</label>
+                        <select class="form-control" name="loai_dong_vat">
+                            {% for loai_dong_vat_quy in loai_dong_vat_quy_all %}
+                              <option value="{{ loai_dong_vat_quy.id }}">{{ loai_dong_vat_quy.ten_loai_dong_vat_quy }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                    <div class="form-group">
+                        <label>Co so luu tru</label>
+                        <select class="form-control" name="cs_luu_tru">
+                            {% for co_so_luu_tru_dv in co_so_luu_tru_dv_all %}
+                              <option value="{{ co_so_luu_tru_dv.id }}">{{ co_so_luu_tru_dv.ten_co_so }} - {{ co_so_luu_tru_dv.dia_chi }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label>Loai bien dong</label>
+                        <select class="form-control" name="loai_bien_dong_id">
+                            {% for loai_bien_dong in loai_bien_dong_all %}
+                              <option value="{{ loai_bien_dong.id }}">{{ loai_bien_dong.ten_loai_bien_doi }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                <div class="form-group">
+                    <label>So luong</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="soluong"
+                      placeholder="Nhap so luong"
+                      id="don_vi"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                  <div class="form-group">
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.tags == 'error' %}
+                      <div class="alert alert-danger" style="margin-top: 10px">
+                        {{ message }}
+                      </div>
+                    {% endif %} 
+                    {% if message.tags == 'success' %}
+                    <div class="alert alert-success" style="margin-top: 10px">
+                      {{ message }}
+                    </div>
+                    {% endif %} {% endfor %} {% endif %}
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Them thong tin </button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

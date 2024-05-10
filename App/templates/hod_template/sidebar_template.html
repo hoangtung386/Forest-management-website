@@ -1,0 +1,225 @@
+{% load static %}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="{% url 'admin_home' %}" class="brand-link">
+    <img src="{% static "dist/img/AdminLTELogo.png" %}" alt="AdminLTE Logo"
+    class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">Quản Lý Tài Nguyên</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="{% static "dist/img/user2-160x160.jpg" %}" class="img-circle
+        elevation-2" alt="User Image">
+      </div>
+      <div class="info">
+        <a href="{% url 'admin_profile' %}" class="d-block"
+          >{{ user.username }}</a
+        >
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          {% url 'admin_home' as admin_home %}
+          <a
+            href="{{ admin_home }}"
+            class="nav-link {% if request.path == admin_home %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Home</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          {% url 'add_staff' as add_staff %}
+          <a
+            href="{{ add_staff }}"
+            class="nav-link {% if request.path == add_staff %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Them Can Bo Nghiep Vu</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'manage_staff' as manage_staff %}
+          <a
+            href="{{ manage_staff }}"
+            class="nav-link {% if request.path == manage_staff %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Quan ly Can bo nghiep vu</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'them_don_vi' as them_don_vi %}
+          <a
+            href="{{ them_don_vi }}"
+            class="nav-link {% if request.path == them_don_vi %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Them Don vi</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'manage_donvi' as manage_donvi %}
+          <a
+            href="{{ manage_donvi }}"
+            class="nav-link {% if request.path == manage_donvi %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Quan ly Don vi</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'add_loai_cay_giong' as add_loai_cay_giong %}
+          <a
+            href="{{ add_loai_cay_giong }}"
+            class="nav-link {% if request.path == add_loai_cay_giong %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Them loai cay giong</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'manage_loai_cay_giong' as manage_loai_cay_giong %}
+          <a
+            href="{{ manage_loai_cay_giong }}"
+            class="nav-link {% if request.path == manage_loai_cay_giong %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Quan ly loai cay giong</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'add_co_so_san_xuat_cay_giong' as add_co_so_san_xuat_cay_giong %}
+          <a
+            href="{{ add_co_so_san_xuat_cay_giong }}"
+            class="nav-link {% if request.path == add_co_so_san_xuat_cay_giong %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Them co so sx cay giong</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'manage_co_so_san_xuat_cay_giong' as manage_co_so_san_xuat_cay_giong %}
+          <a
+            href="{{ manage_co_so_san_xuat_cay_giong }}"
+            class="nav-link {% if request.path == manage_co_so_san_xuat_cay_giong %} active {% endif %}">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Quan ly co so sx cay giong</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'add_loai_hinh_san_xuat' as add_loai_hinh_san_xuat %}
+          <a
+            href="{{ add_loai_hinh_san_xuat }}"
+            class="nav-link {% if request.path == add_loai_hinh_san_xuat %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Them loai hinh san xuat</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'manage_loai_hinh_san_xuat' as manage_loai_hinh_san_xuat %}
+          <a
+            href="{{ manage_loai_hinh_san_xuat }}"
+            class="nav-link {% if request.path == manage_loai_hinh_san_xuat %} active {% endif %}">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Quan ly loai hinh san xuat</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'add_co_so_luu_tru_dong_vat' as add_co_so_luu_tru_dong_vat %}
+          <a
+            href="{{ add_co_so_luu_tru_dong_vat }}"
+            class="nav-link {% if request.path == add_co_so_luu_tru_dong_vat %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Them co so luu tru dong vat</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'manage_co_so_luu_tru_dong_vat' as manage_co_so_luu_tru_dong_vat %}
+          <a
+            href="{{ manage_co_so_luu_tru_dong_vat }}"
+            class="nav-link {% if request.path == manage_co_so_luu_tru_dong_vat %} active {% endif %}">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Quan ly co so du lieu dong vat</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'add_hinh_thuc_hoat_dong' as add_hinh_thuc_hoat_dong %}
+          <a
+            href="{{ add_hinh_thuc_hoat_dong }}"
+            class="nav-link {% if request.path == add_hinh_thuc_hoat_dong %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Them hinh thuc hoat dong</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'manage_hinh_thuc_hoat_dong' as manage_hinh_thuc_hoat_dong %}
+          <a
+            href="{{ manage_hinh_thuc_hoat_dong }}"
+            class="nav-link {% if request.path == manage_hinh_thuc_hoat_dong %} active {% endif %}">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Quan ly hinh thuc hoat dong</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'add_loai_bien_dong' as add_loai_bien_dong %}
+          <a
+            href="{{ add_loai_bien_dong }}"
+            class="nav-link {% if request.path == add_loai_bien_dong %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Them loai bien dong</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'manage_loai_bien_dong' as manage_loai_bien_dong %}
+          <a
+            href="{{ manage_loai_bien_dong }}"
+            class="nav-link {% if request.path == manage_loai_bien_dong %} active {% endif %}">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Quan ly loai bien dong</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'add_loai_dong_vat_quy' as add_loai_dong_vat_quy %}
+          <a
+            href="{{ add_loai_dong_vat_quy }}"
+            class="nav-link {% if request.path == add_loai_dong_vat_quy %} active {% endif %}"
+          >
+            <i class="nav-icon fas fa-th"></i>
+            <p>Them loai dong vat quy</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          {% url 'manage_loai_dong_vat_quy' as manage_loai_dong_vat_quy %}
+          <a
+            href="{{ manage_loai_dong_vat_quy }}"
+            class="nav-link {% if request.path == manage_loai_dong_vat_quy %} active {% endif %}">
+            <i class="nav-icon fas fa-th"></i>
+            <p>Quan ly loai dong vat quy</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

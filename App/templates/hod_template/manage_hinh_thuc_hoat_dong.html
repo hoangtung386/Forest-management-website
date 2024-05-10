@@ -1,0 +1,56 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Quan ly hinh thuc hoat dong
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+
+           <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin cac loai hinh thuc hoat dong</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Ten loai hinh thuc hoat dong</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for hinh_thuc_hoat_dong in hinh_thuc_hoat_dong_all %}
+                    <tr>
+                      <td>{{ hinh_thuc_hoat_dong.id}}</td>
+                      <td>{{ hinh_thuc_hoat_dong.ten_hinh_thuc_hoat_dong }}</td>
+                      <td><a href="edit_hinh_thuc_hoat_dong/{{hinh_thuc_hoat_dong.id}}" class="btn btn-success">Chinh sua</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

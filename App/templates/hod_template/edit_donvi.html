@@ -1,0 +1,79 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Sua thong tin Don Vi
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin don vi</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/edit_donvi_save" method="post">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Ten don vi</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="don_vi"
+                      placeholder="Nhap ten don vi"
+                      id="don_vi"
+                      autocomplete="off"
+                      value="{{don_vi.ten_don_vi}}"
+                    />
+                    <input type="hidden"  name="donvi_id" value="{{ don_vi.id }}">
+
+                  </div>
+                    <div class="form-group">
+                      <label>Dia chi</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="dia_chi"
+                        placeholder="Nhap dia chi don vi"
+                        id="dia_chi"
+                        autocomplete="off"
+                        value="{{don_vi.vi_tri}}"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.tags == 'error' %}
+                      <div class="alert alert-danger" style="margin-top: 10px">
+                        {{ message }}
+                      </div>
+                    {% endif %} 
+                    {% if message.tags == 'success' %}
+                    <div class="alert alert-success" style="margin-top: 10px">
+                      {{ message }}
+                    </div>
+                    {% endif %} {% endfor %} {% endif %}
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Cap nhat thong tin don vi</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

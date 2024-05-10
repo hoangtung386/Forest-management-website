@@ -1,0 +1,59 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Quan ly loai cay giong
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+
+           <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin cac loai cay giong</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Ten giong cay</th>
+                      <th>Ngay cap phep</th>
+                      <th>Thao tac</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for loai_cay_giong in loai_cay_giong_all %}
+                    <tr>
+                      <td>{{ loai_cay_giong.id}}</td>
+                      <td>{{ loai_cay_giong.ten_giong }}</td>
+                      <td>{{ loai_cay_giong.Ngay_cap_phep }}</td>
+                      <td><a href="edit_loai_cay_giong/{{loai_cay_giong.id}}" class="btn btn-success">Chinh sua</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

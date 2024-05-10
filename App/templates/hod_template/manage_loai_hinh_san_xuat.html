@@ -1,0 +1,56 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Quan ly loai hinh san xuat
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+
+           <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin cac loai hinh san xuat</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Ten loai hinh san xuat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for loai_hinh_san_xuat in loai_hinh_san_xuat_all %}
+                    <tr>
+                      <td>{{ loai_hinh_san_xuat.id}}</td>
+                      <td>{{ loai_hinh_san_xuat.ten_loai_hinh_san_xuat }}</td>
+                      <td><a href="edit_loai_hinh_san_xuat/{{loai_hinh_san_xuat.id}}" class="btn btn-success">Chinh sua</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

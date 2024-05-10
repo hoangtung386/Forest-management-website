@@ -1,0 +1,102 @@
+{% extends 'staff_template/base_template.html' %}
+{% block page_title %}
+Them Co so san xuat che bien go
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin co so san xuat</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/add_cssx_che_bien_go_save" method="post">
+                {% csrf_token %}
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Ten co so</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="ten_co_so"
+                          placeholder="Nhap ten co so"
+                          id="don_vi"
+                          autocomplete="off"
+                        />
+                      </div>
+                    <div class="form-group">
+                        <label>Loai hinh san xuat</label>
+                        <select class="form-control" name="loai_hinh_sx">
+                            {% for loai_hinh_sx in loai_hinh_sx_all %}
+                              <option value="{{ loai_hinh_sx.id }}">{{ loai_hinh_sx.ten_loai_hinh_san_xuat }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                    <div class="form-group">
+                        <label>Hinh thuc hoat dong</label>
+                        <select class="form-control" name="hinh_thuc_hoat_dong">
+                            {% for hinh_thuc_hd in hinh_thuc_hd_all %}
+                              <option value="{{ hinh_thuc_hd.id }}">{{ hinh_thuc_hd.ten_hinh_thuc_hoat_dong }} </option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                <div class="form-group">
+                    <label>Dia diem</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="diadiem"
+                      placeholder="Nhap Dia diem"
+                      id="don_vi"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Ngay thanh lap</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      name="ngaythanhlap"
+                      placeholder=""
+                      id="don_vi"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                  <div class="form-group">
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.tags == 'error' %}
+                      <div class="alert alert-danger" style="margin-top: 10px">
+                        {{ message }}
+                      </div>
+                    {% endif %} 
+                    {% if message.tags == 'success' %}
+                    <div class="alert alert-success" style="margin-top: 10px">
+                      {{ message }}
+                    </div>
+                    {% endif %} {% endfor %} {% endif %}
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Them thong tin co so</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

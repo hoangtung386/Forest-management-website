@@ -1,0 +1,62 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Chinh sua thong tin loai dong vat quy  | Ten loai dong vat quy : {{ loai_dong_vat_quy.ten_loai_dong_vat_quy }} |  #ID : {{ loai_dong_vat_quy.id }}
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Chinh sua</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/edit_loai_dong_vat_quy_save" method="post">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Ten loai dong vat quy</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="ten_loai_dong_vat_quy"
+                      placeholder="Nhap ten loai dong vat quy"
+                      id="ten_loai_dong_vat_quy"
+                      autocomplete="off"
+                      value="{{loai_dong_vat_quy.ten_loai_dong_vat_quy}}"
+                    />
+                    <input type="hidden"  name="id_dong_vat"  value="{{ loai_dong_vat_quy.id }}">
+
+                  <div class="form-group">
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.tags == 'error' %}
+                      <div class="alert alert-danger" style="margin-top: 10px">
+                        {{ message }}
+                      </div>
+                    {% endif %} 
+                    {% if message.tags == 'success' %}
+                    <div class="alert alert-success" style="margin-top: 10px">
+                      {{ message }}
+                    </div>
+                    {% endif %} {% endfor %} {% endif %}
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Cap nhat loai cay giong</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

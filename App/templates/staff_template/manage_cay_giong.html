@@ -1,0 +1,63 @@
+{% extends 'staff_template/base_template.html' %}
+{% block page_title %}
+Quan ly cay giong
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+
+           <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin cay giong</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Loai cay giong</th>
+                      <th>Co so san xuat</th>
+                      <th>So luong</th>
+                      <th>Thoi gian cap nhat cuoi</th>
+                      <th>Thao tac</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for cay_giong in cay_giong_all %}
+                    <tr>
+                      <td>{{ cay_giong.id}}</td>
+                      <td>{{ cay_giong.loai_cay_giong.ten_giong }}</td>
+                      <td>{{ cay_giong.co_so_san_xuat.ten_co_so }} - {{ cay_giong.co_so_san_xuat.dia_diem }}</td>
+                      <td>{{ cay_giong.so_luong }}</td>
+                      <td>{{ cay_giong.Thoi_gian_cap_nhat}}</td>
+                      <td><a href="edit_cay_giong/{{cay_giong.id}}" class="btn btn-success">Chinh sua</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

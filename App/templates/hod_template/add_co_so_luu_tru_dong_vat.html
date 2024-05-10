@@ -1,0 +1,72 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Them co so luu tru dong vat
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin co so luu tru dong vat</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/add_co_so_luu_tru_dong_vat_save" method="post">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Ten Co So</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="ten_co_so"
+                      placeholder="Nhap ten co so"
+                      id="ten_co_so"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Dia Chi</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="ten_dia_chi"
+                      placeholder="Nhap Dia Chi"
+                      id="ten_dia_chi"
+                      autocomplete="off"
+                    />
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.tags == 'error' %}
+                      <div class="alert alert-danger" style="margin-top: 10px">
+                        {{ message }}
+                      </div>
+                    {% endif %} 
+                    {% if message.tags == 'success' %}
+                    <div class="alert alert-success" style="margin-top: 10px">
+                      {{ message }}
+                    </div>
+                    {% endif %} {% endfor %} {% endif %}
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Them Co So Luu Tru Dong Vat</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

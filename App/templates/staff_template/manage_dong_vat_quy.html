@@ -1,0 +1,65 @@
+{% extends 'staff_template/base_template.html' %}
+{% block page_title %}
+Quan ly dong vat quy
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+
+           <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin dong vat quy</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Loai dong vat</th>
+                      <th>Co so luu tru</th>
+                      <th>Loai bien dong</th>
+                      <th>So luong</th>
+                      <th>Thoi gian cap nhat cuoi</th>
+                      <th>Thao tac</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for dong_vat_quy in dong_vat_quy_all %}
+                    <tr>
+                      <td>{{ dong_vat_quy.id}}</td>
+                      <td>{{ dong_vat_quy.loai_dong_vat_quy.ten_loai_dong_vat_quy }}</td>
+                      <td>{{ dong_vat_quy.co_so_luu_tru.ten_co_so }} - {{ dong_vat_quy.co_so_luu_tru.dia_chi }}</td>
+                      <td>{{ dong_vat_quy.loai_bien_dong.ten_loai_bien_doi }}</td>
+                      <td>{{ dong_vat_quy.so_luong }}</td>
+                      <td>{{ dong_vat_quy.ngay_cap_nhat}}</td>
+                      <td><a href="edit_dong_vat_quy/{{dong_vat_quy.id}}" class="btn btn-success">Chinh sua</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

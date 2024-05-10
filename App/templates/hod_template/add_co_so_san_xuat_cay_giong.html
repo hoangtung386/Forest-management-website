@@ -1,0 +1,86 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Them Co so san xuat cay giong
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Thong tin co so</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/add_co_so_san_xuat_cay_giong_save" method="post">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Ten co so</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="ten_co_so"
+                      placeholder="Nhap ten co so"
+                      id="don_vi"
+                      autocomplete="off"
+                    />
+                  </div>   
+                 <div class="form-group">
+                        <label>Dia chi</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="dia_chi"
+                          placeholder="Nhap dia chi"
+                          id="dia_chi"
+                          autocomplete="off"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label>Ngay cap phep</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          name="ngay_cap_phep"
+                          placeholder="Nhap mhay_cap_phep"
+                          id="dia_chi"
+                          autocomplete="off"
+                        />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    {% if messages %} {% for message in messages %} 
+                    {% if message.tags == 'error' %}
+                      <div class="alert alert-danger" style="margin-top: 10px">
+                        {{ message }}
+                      </div>
+                    {% endif %} 
+                    {% if message.tags == 'success' %}
+                    <div class="alert alert-success" style="margin-top: 10px">
+                      {{ message }}
+                    </div>
+                    {% endif %} {% endfor %} {% endif %}
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Them don vi</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

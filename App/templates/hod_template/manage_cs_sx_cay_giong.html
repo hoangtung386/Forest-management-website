@@ -1,0 +1,64 @@
+{% extends 'hod_template/base_template.html' %} {% block page_title %} Quan ly
+co so san xuat cay giong {% endblock page_title %} {% block main_content %}
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Thong tin cac don vi</h3>
+
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px">
+                <input
+                  type="text"
+                  name="table_search"
+                  class="form-control float-right"
+                  placeholder="Search"
+                />
+
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Ten co so</th>
+                  <th>Dia chi</th>
+                  <th>Ngay cap phep</th>
+                  <th>Thao tac</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for co_so_san_xuat_cay_giong in co_so_san_xuat_cay_giong_all %}
+                <tr>
+                  <td>{{ co_so_san_xuat_cay_giong.id}}</td>
+                  <td>{{ co_so_san_xuat_cay_giong.ten_co_so }}</td>
+                  <td>{{ co_so_san_xuat_cay_giong.dia_diem }}</td>
+                  <td>{{ co_so_san_xuat_cay_giong.ngay_cap_phep}}</td>
+                  <td>
+                    <a href="edit_co_so_san_xuat_cay_gong/{{co_so_san_xuat_cay_giong.id}}" class="btn btn-success">Chinh sua</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /.content -->
+{% endblock main_content %}
