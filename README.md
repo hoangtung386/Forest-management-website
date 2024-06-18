@@ -1,4 +1,7 @@
-# Project: Quan ly tai nguyen rung
+# Forest Resource Management System
+
+Welcome to the Forest Resource Management System - a comprehensive solution for tracking, managing, and conserving the precious natural resources of our forests. This platform is designed to support forest managers, leaders, and scientists in monitoring the growth of flora and fauna, as well as the activities related to forest exploitation.
+
 1. Installation Steps :
 - Clone this repository, you should use a virtual environment to store your Django project’s
 ```shell
