@@ -5,8 +5,8 @@ Welcome to the Forest Resource Management System - a comprehensive solution for 
 1. Installation Steps :
 - Clone this repository, you should use a virtual environment to store your Django project’s
 ```shell
-git clone https://github.com/Jackson2706/Quan_ly_tai_nguyen_rung.git
-cd Quan_ly_tai_nguyen_rung
+git clone https://github.com/hoangtung719/Forest-management-website.git
+cd Forest-management-website
 ```
 - Install the Django code with Pip:
 ```shell
