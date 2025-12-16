@@ -65,12 +65,27 @@ The recommended way to deploy FMS is via Docker, which handles all complex spati
     ```
 
 5.  **Create Administrator**
+    **Note**: When prompted for **Username**, please input your **Email address** (e.g., `admin@gmail.com`). This is required for login.
     ```bash
     docker compose exec web python manage.py createsuperuser
     ```
 
-6.  **Access the Dashboard**
+7.  **Access the Dashboard**
     Open your browser to: [http://localhost:8000](http://localhost:8000)
+
+### Stopping the System
+
+To stop the application and release resources:
+
+```bash
+docker compose down
+```
+
+To stop without removing containers (faster restart):
+
+```bash
+docker compose stop
+```
 
 ---
 
