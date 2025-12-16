@@ -1,16 +1,16 @@
 # Use an official Python runtime as a parent image
 FROM python:3.12-slim
 
-# Add labels for GitHub Container Registry
-LABEL org.opencontainers.image.source="https://github.com/hoangtung719/Forest-management-website"
-LABEL org.opencontainers.image.description="Modern Forest Management System - A comprehensive platform for sustainable forestry"
-LABEL org.opencontainers.image.licenses="MIT"
-LABEL org.opencontainers.image.title="Forest Management System"
-LABEL org.opencontainers.image.version="1.0.0"
-
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+
+# Labels for GitHub Container Registry
+LABEL org.opencontainers.image.source=https://github.com/hoangtung386/Forest-management-website
+LABEL org.opencontainers.image.description="Modern Forest Management System - A comprehensive platform for sustainable forestry"
+LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.title="Forest Management System"
+LABEL org.opencontainers.image.version="1.0.0"
 
 # Install system dependencies for GeoDjango
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -46,7 +46,7 @@ EXPOSE 8000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD python -c "import requests; requests.get('http://localhost:8000')"
+    CMD python -c "import requests; requests.get('http://localhost:8000')"
 
 # Default command
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "4", "System.wsgi:application"]
