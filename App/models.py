@@ -142,8 +142,15 @@ def create_user_profile(sender, instance, created, **kwargs):
         if instance.user_type == 1:
             AdminHOD.objects.create(admin=instance)
         if instance.user_type == 2:
+            # Fix: Handle case where Donvi usually doesn't exist on fresh DB
+            try:
+                donvi = Donvi.objects.get(id=1)
+            except Donvi.DoesNotExist:
+                # Create a default unit if not exists to prevent crash
+                donvi = Donvi.objects.create(ten_don_vi="Default Unit", vi_tri="Default Location")
+            
             CanBoNghiepVu.objects.create(
-                admin=instance, chuc_vu="", don_vi=Donvi.objects.get(id=1)
+                admin=instance, chuc_vu="", don_vi=donvi
             )
 
 
