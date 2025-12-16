@@ -1,5 +1,11 @@
 # Modern Forest Management System (FMS)
 
+[![GitHub Release](https://img.shields.io/github/v/release/hoangtung386/Forest-management-website?style=flat-square)](https://github.com/hoangtung386/Forest-management-website/releases)
+[![Docker Image Version (latest by date)](https://img.shields.io/github/v/tag/hoangtung386/Forest-management-website?label=Docker%20Image&style=flat-square)](https://github.com/hoangtung386/Forest-management-website/pkgs/container/forest-management-website)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+[**Installation Guide**](./INSTALLATION.md) | [**Changelog**](./CHANGELOG.md)
+
 > **A Next-Generation Platform for Sustainable Forestry & Biodiversity Conservation**
 
 [![Django 5.0](https://img.shields.io/badge/Django-5.0-092E20?style=for-the-badge&logo=django)](https://docs.djangoproject.com/en/5.0/)
@@ -42,7 +48,7 @@ The recommended way to deploy FMS is via Docker, which handles all complex spati
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/hoangtung719/Forest-management-website.git
+    git clone https://github.com/hoangtung386/Forest-management-website.git
     cd Forest-management-website
     ```
 

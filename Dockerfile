@@ -1,6 +1,11 @@
 # Use an official Python runtime as a parent image
 FROM python:3.12-slim
 
+# Labels for GitHub Container Registry
+LABEL org.opencontainers.image.source=https://github.com/hoangtung386/Forest-management-website
+LABEL org.opencontainers.image.description="Forest Management System Container"
+LABEL org.opencontainers.image.licenses=MIT
+
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
