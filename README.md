@@ -1,4 +1,4 @@
-# 🌲 Modern Forest Management System (FMS)
+# Modern Forest Management System (FMS)
 
 > **A Next-Generation Platform for Sustainable Forestry & Biodiversity Conservation**
 
@@ -6,11 +6,11 @@
 [![PostGIS](https://img.shields.io/badge/PostGIS-Enabled-336791?style=for-the-badge&logo=postgresql)](https://postgis.net/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
 
-## 📖 Overview
+## Overview
 
 The **Modern Forest Management System (FMS)** is a comprehensive digital solution designed to empower forest rangers, scientists, and administrators. It transforms traditional forestry management into a data-driven discipline, integrating **Geographic Information Systems (GIS)**, **Real-time Monitoring**, and **AI-powered Biodiversity Tracking**.
 
-### 🚀 Key Capabilities
+### Key Capabilities
 *   **Resource Tracking**: Manage detailed records of tree species, seed sources, and wood processing facilities.
 *   **Biodiversity Protection**: Monitor endangered flora and fauna with precise location data.
 *   **GIS Integration**: Visualize forest boundaries, patrol routes, and incident hotspots on interactive maps (PostGIS enabled).
@@ -18,7 +18,7 @@ The **Modern Forest Management System (FMS)** is a comprehensive digital solutio
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 This project has been modernized to meets the standards of high-performance enterprise applications:
 
@@ -30,7 +30,7 @@ This project has been modernized to meets the standards of high-performance ente
 
 ---
 
-## ⚡ Quick Start (Docker)
+## Quick Start (Docker)
 
 The recommended way to deploy FMS is via Docker, which handles all complex spatial dependencies (GDAL/GEOS) automatically.
 
@@ -74,7 +74,7 @@ The recommended way to deploy FMS is via Docker, which handles all complex spati
 
 ---
 
-## 🗺️ Roadmap & Modernization Plan
+## Roadmap & Modernization Plan
 
 We are actively upgrading this legacy system into a state-of-the-art platform:
 
@@ -94,7 +94,7 @@ We are actively upgrading this legacy system into a state-of-the-art platform:
 
 ---
 
-## 🤝 Contribution
+## Contribution
 
 Contributions are welcome! Please examine the `task.md` file in the artifacts directory for current priorities.
 
@@ -103,7 +103,3 @@ Contributions are welcome! Please examine the `task.md` file in the artifacts di
 3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4.  Push to the Branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
-
----
-
-*Built with ❤️ for the Forest.*
