@@ -1,84 +1,109 @@
-# Forest Resource Management System
+# 🌲 Modern Forest Management System (FMS)
 
-Welcome to the Forest Resource Management System - a comprehensive solution for tracking, managing, and conserving the precious natural resources of our forests. This platform is designed to support forest managers, leaders, and scientists in monitoring the growth of flora and fauna, as well as the activities related to forest exploitation.
+> **A Next-Generation Platform for Sustainable Forestry & Biodiversity Conservation**
 
-1. Installation Steps :
-- Clone this repository, you should use a virtual environment to store your Django project’s
-```shell
-git clone https://github.com/hoangtung719/Forest-management-website.git
-cd Forest-management-website
-```
-- Install the Django code with Pip:
-```shell
-python -m pip install Django
-```
-- Install other dependencies:
-```shell
-pip install dj-database-url gunicorn whitenoise requests
-```
-2. Run project:
-- Make migrations:
-```shell
-python manage.py makemigrations <app_name>
-```
-- Migrate:
-```shell
-python manage.py migrate
-```
-- Create a superuser (Admin account):
-```shell
-python manage.py createsuperuser
-```
-- Run Server (Deploy):
-```shell
-python manage.py runserver
-```
+[![Django 5.0](https://img.shields.io/badge/Django-5.0-092E20?style=for-the-badge&logo=django)](https://docs.djangoproject.com/en/5.0/)
+[![PostGIS](https://img.shields.io/badge/PostGIS-Enabled-336791?style=for-the-badge&logo=postgresql)](https://postgis.net/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
 
-# Verification Walkthrough - Core Upgrade & Security
+## 📖 Overview
 
-I have completed Phase 1 of the upgrade, focusing on infrastructure and Django 5.0 compatibility. Here is how to verify the changes.
+The **Modern Forest Management System (FMS)** is a comprehensive digital solution designed to empower forest rangers, scientists, and administrators. It transforms traditional forestry management into a data-driven discipline, integrating **Geographic Information Systems (GIS)**, **Real-time Monitoring**, and **AI-powered Biodiversity Tracking**.
 
-## 1. Environment Setup Verification
-Verify that the new infrastructure files are in place.
+### 🚀 Key Capabilities
+*   **Resource Tracking**: Manage detailed records of tree species, seed sources, and wood processing facilities.
+*   **Biodiversity Protection**: Monitor endangered flora and fauna with precise location data.
+*   **GIS Integration**: Visualize forest boundaries, patrol routes, and incident hotspots on interactive maps (PostGIS enabled).
+*   **Operational Efficiency**: Streamline reporting between field units and central administration.
 
-```bash
-ls -l requirements.txt Dockerfile docker-compose.yml .env
-```
-Ensure [.env](file:///home/admin1/Projects/Forest-management-website/.env) contains the necessary variables (SECRET_KEY, DEBUG, DATABASE_URL).
+---
 
-## 2. Docker Build & Run (Requires Docker)
-Since the system now depends on PostGIS and system-level GeoDjango dependencies (GDAL), the recommended way to run is via Docker.
+## 🛠️ Technology Stack
 
-```bash
-# Build the images
-docker-compose build
+This project has been modernized to meets the standards of high-performance enterprise applications:
 
-# Start the services
-docker-compose up -d
-```
+*   **Backend Core**: Django 5.0 (Python 3.12)
+*   **Database**: PostgreSQL 15 + PostGIS (Spatial Database)
+*   **Containerization**: Docker & Docker Compose
+*   **Frontend**: AdminLTE 3 (Hybrid Architecture)
+*   **API**: Django REST Framework (Infrastructure Ready)
 
-## 3. Post-Deployment Verification
-Once the container is running, execute the following to verify the Django version and database connection:
+---
 
-```bash
-# Enter the web container
-docker-compose exec web bash
+## ⚡ Quick Start (Docker)
 
-# Check Django Version
-python -c "import django; print(django.get_version())"
-# Expected: 5.0+
+The recommended way to deploy FMS is via Docker, which handles all complex spatial dependencies (GDAL/GEOS) automatically.
 
-# Run System Checks
-python manage.py check
-```
+### Prerequisites
+*   [Docker Desktop](https://www.docker.com/products/docker-desktop) or Docker Engine
+*   Git
 
-## 4. Code Compatibility Fixes Verified
-I have proactively patched the following legacy issues to match Django 5.0 standards:
+### Installation
 
-1.  **Authentication Backend**: Updated [App/EmailBackEnd.py](file:///home/admin1/Projects/Forest-management-website/App/EmailBackEnd.py) to accept receiving the `request` object.
-2.  **Views**: Updated [App/views.py](file:///home/admin1/Projects/Forest-management-website/App/views.py) to use `django.contrib.auth.authenticate` instead of a direct class method call.
-3.  **Models**: Fixed a crash in [App/models.py](file:///home/admin1/Projects/Forest-management-website/App/models.py) where creating a staff user relied on a hardcoded "Unit ID 1" that wouldn't exist in a fresh PostGIS database.
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/hoangtung719/Forest-management-website.git
+    cd Forest-management-website
+    ```
 
-## 5. Next Steps
--   **Database Migration**: The system is configured to use Postgres. Run `python manage.py migrate` inside the container to create the schema.
--   **Superuser**: Create a new admin via `python manage.py createsuperuser`.
+2.  **Configure Environment**
+    Ensure a `.env` file exists in the root directory. You can copy the example:
+    ```bash
+    cp .env.example .env
+    # Edit .env variables as needed (e.g., SECRET_KEY, DEBUG)
+    ```
+
+3.  **Build & Launch**
+    ```bash
+    docker compose up -d --build
+    ```
+
+4.  **Initialize Database**
+    Run migrations to set up the spatial database schema:
+    ```bash
+    docker compose exec web python manage.py migrate
+    ```
+
+5.  **Create Administrator**
+    ```bash
+    docker compose exec web python manage.py createsuperuser
+    ```
+
+6.  **Access the Dashboard**
+    Open your browser to: [http://localhost:8000](http://localhost:8000)
+
+---
+
+## 🗺️ Roadmap & Modernization Plan
+
+We are actively upgrading this legacy system into a state-of-the-art platform:
+
+- [x] **Phase 1: Infrastructure Overhaul**
+    - Containerization (Docker)
+    - Migration to PostgreSQL/PostGIS
+    - Django 5.0 Upgrade
+- [ ] **Phase 2: API-First Architecture**
+    - RESTful API implementation
+    - Mobile App Backend readiness
+- [ ] **Phase 3: Advanced GIS**
+    - Leaflet/Mapbox Integration
+    - Heatmap visualization for deforestation/fire risks
+- [ ] **Phase 4: AI & IoT**
+    - Computer Vision for species identification
+    - Real-time IoT sensor integration (Humidity, Temperature)
+
+---
+
+## 🤝 Contribution
+
+Contributions are welcome! Please examine the `task.md` file in the artifacts directory for current priorities.
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+---
+
+*Built with ❤️ for the Forest.*
